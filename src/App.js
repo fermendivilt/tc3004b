@@ -1,19 +1,82 @@
-import logo from './logo.svg';
-import './App.css';
-import Component1 from './Components/Component';
+import logo from "./logo.svg";
+import "./App.css";
+import "./Components_class2/input.css";
+// Los componentes deben ir en mayúscula
+import Paragraph from "./Components_class2/Paragraph";
 
 function App() {
-
-  const ahoraI2 = [5,4,3,2];
-  const ahoraI = [...ahoraI2, 1,2,3,4];
-  const ahoraI3 = {nombre:'Fernando', apellido:'Mendivil'};
-
+  const clase = 2;
+  //clase = 4; esto daria un error
+  const titulo = "Clase " + clase + " de testing";
 
   return (
-
-    <Component1 valor = {ahoraI3}> </Component1>
-
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>{titulo}</p>
+        <Paragraph 
+          title={titulo} 
+          desc="Esto es un componente fuera de App.js"
+          />
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
 export default App;
+
+/**
+ * Primera clase: componente básico
+import './App.css';
+//import Component1 from './Components_class1/Component';
+import Component1 from './Components_class1/Component';
+
+function App() {
+
+  const ahoraI = [5,4,3,2];
+  const ahoraI2 = [...ahoraI, 1,2,3,4];
+  const ahoraI3 = {nombre:'Fernando', apellido:'Mendivil'};
+
+  return (
+    //<Component1 valor = {ahoraI3}> </Component1>
+    <Component1 valor = {ahoraI3}> </Component1>
+  );
+}
+export default App;
+ */
+
+/* JSX: código js pero estilizado como html (fíjate en el primer div, className es de aquí);
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+*/
