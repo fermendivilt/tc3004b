@@ -1,38 +1,31 @@
 import Alumn from "./Object_class3/Alumn";
+import "./App.css";
 
 function App() {
   //Objeto estatico
   const miSer = {
-    nombre : 'Fernando Mendivil',
-    matricula : 'A00232280',
-    promedio : 70,
-    semestre : 5,
-    pasarSemestre : function(){
-      if(this.promedio >= 70)
-        return (this.semestre + 1);
-    }
-  }
+    nombre: "Fernando Mendivil",
+    matricula: "A00232280",
+    promedio: 70,
+    semestre: 5
+  };
 
   class alumnCreator {
-    constructor(nombre, matricula, promedio, semestre){
+    constructor(nombre, matricula, promedio, semestre) {
       this.nombre = nombre;
       this.matricula = matricula;
       this.promedio = promedio;
       this.semestre = semestre;
     }
-    pasarSemestre(){
-      if(this.promedio >= 70)
-        return (this.semestre + 1);
-    }
   }
 
-  let nuevoSer = new alumnCreator('Jorge Polo', 'Cosas', 0, 8)
+  let nuevoSer = new alumnCreator("Jorge Polo", "Cosas", 100, 8);
 
   return (
     <div className="App">
-      <Alumn alumn={miSer}/>
+      <Alumn alumn={miSer} />
 
-      <Alumn alumn={nuevoSer}/>
+      <Alumn alumn={nuevoSer} />
     </div>
   );
 }
