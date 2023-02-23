@@ -19,14 +19,16 @@ function App() {
     }
   }
 
-  let alumnos = [];
-  alumnos.push(new alumnCreator("Fernando Mendivil", "A00232280", 70, 5));
-  alumnos.push(new alumnCreator("Jorge Polo", "Cosas", 100, 8));
+  let alumnos1 = [];
+  alumnos1.push(new alumnCreator("Fernando Mendivil", "A00232280", 70, 5));
+  alumnos1.push(new alumnCreator("Jorge Polo", "Cosas", 100, 8));
+
+  let alumnos2 = [...alumnos1, new alumnCreator("Oliver Ortega","A00232304", 100, 3)];
 
   return (
     <div className="App container">
       {
-        alumnos.map(element => {
+        alumnos2.map(element => {
           return <Alumn alumn={element} />
         })
       }
