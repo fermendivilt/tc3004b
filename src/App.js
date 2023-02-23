@@ -2,14 +2,14 @@ import Alumn from "./Object_class3/Alumn";
 import "./App.css";
 
 function App() {
-  //Objeto estatico
+  /*Objeto estatico
   const miSer = {
     nombre: "Fernando Mendivil",
     matricula: "A00232280",
     promedio: 70,
     semestre: 5
   };
-
+  */
   class alumnCreator {
     constructor(nombre, matricula, promedio, semestre) {
       this.nombre = nombre;
@@ -19,13 +19,17 @@ function App() {
     }
   }
 
-  let nuevoSer = new alumnCreator("Jorge Polo", "Cosas", 100, 8);
+  let alumnos = [];
+  alumnos.push(new alumnCreator("Fernando Mendivil", "A00232280", 70, 5));
+  alumnos.push(new alumnCreator("Jorge Polo", "Cosas", 100, 8));
 
   return (
-    <div className="App">
-      <Alumn alumn={miSer} />
-
-      <Alumn alumn={nuevoSer} />
+    <div className="App container">
+      {
+        alumnos.map(element => {
+          return <Alumn alumn={element} />
+        })
+      }
     </div>
   );
 }
