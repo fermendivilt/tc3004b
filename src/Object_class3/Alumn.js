@@ -6,8 +6,8 @@ export default function Alumn(props) {
   let promedio = props.alumn.promedio;
   const [getPromedio, setPromedio] = useState(promedio);
 
-  let texto = "Bienvenido";
-  const [getTexto, setTexto] = useState(texto);
+  /* let texto = "Bienvenido";
+  const [getTexto, setTexto] = useState(texto); */
 
   const calcularSemestre = () => {
     if (getPromedio >= 70) {
@@ -50,7 +50,7 @@ export default function Alumn(props) {
       <br />
       <br />
 
-      <div class="input-group mb-3">
+      {/* <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">{getTexto}</span>
         </div>
@@ -63,7 +63,7 @@ export default function Alumn(props) {
       </div>
       <br />
       <br />
-      <br />
+      <br />*/}
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import Alumn from "./Object_class3/Alumn";
 import "./App.css";
+import "./Form/Post"
+import Nuevo from "./Form/Post";
 
 function App() {
   /*Objeto estatico
@@ -27,6 +29,7 @@ function App() {
 
   return (
     <div className="App container">
+      <Nuevo/>
       {
         alumnos2.map(element => {
           return <Alumn alumn={element} />
