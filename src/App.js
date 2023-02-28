@@ -1,9 +1,10 @@
 import Alumn from "./Object_class3/Alumn";
 import "./App.css";
-import "./Form/Post"
-import Nuevo from "./Form/Post";
+import "./Form/NuevoAlumnoForm";
+import NuevoAlumnoForm from "./Form/NuevoAlumnoForm";
+import { useState, useEffect } from "react";
 
-function App() {
+export default function App() {
   /*Objeto estatico
   const miSer = {
     nombre: "Fernando Mendivil",
@@ -12,34 +13,51 @@ function App() {
     semestre: 5
   };
   */
-  class alumnCreator {
-    constructor(nombre, matricula, promedio, semestre) {
-      this.nombre = nombre;
-      this.matricula = matricula;
-      this.promedio = promedio;
-      this.semestre = semestre;
-    }
-  }
 
-  let alumnos1 = [];
-  alumnos1.push(new alumnCreator("Fernando Mendivil", "A00232280", 70, 5));
-  alumnos1.push(new alumnCreator("Jorge Polo", "Cosas", 100, 8));
+  const [alumnList, setAlumnList] = useState([]);
+  
+  // class alumnCreator {
+  //   constructor(nombre, matricula, promedio, semestre) {
+  //     this.nombre = nombre;
+  //     this.matricula = matricula;
+  //     this.promedio = promedio;
+  //     this.semestre = semestre;
+  //   }
+  // }
+  
+  //let alumnos1 = [];
+  // useEffect(() => {
+  //   //alumnList.push(new alumnCreator("Fernando Mendivil", "A00232280", 70, 5));
+  //   //alumnList.push(new alumnCreator("Jorge Polo", "A0125algo", 100, 8));
+  // }, [])
+  
 
-  let alumnos2 = [...alumnos1, new alumnCreator("Oliver Ortega","A00232304", 100, 3)];
+  // let alumnos2 = [
+  //   ...alumnos1,
+  //   new alumnCreator("Oliver Ortega", "A00232304", 100, 3),
+  // ];
 
   return (
-    <div className="App container">
-      <Nuevo/>
-      {
-        alumnos2.map(element => {
-          return <Alumn alumn={element} />
-        })
-      }
+    <div className="App container-fluid">
+      <div className="table-responsive">
+        <table className="table table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Matrícula</th>
+            <th scope="col">Promedio</th>
+            <th scope="col">Semestre</th>
+            <th scope="col">Calcular</th>
+          </tr>
+          {alumnList.map((element, index) => {
+            return <Alumn alumn={element} key={index} />;
+          })}
+          <NuevoAlumnoForm alumnList={alumnList} setAlumnList={setAlumnList}/>
+        </table>
+      </div>
     </div>
   );
 }
-
-export default App;
 
 /* Clase 2: componentes en componentes y argumentos
 import logo from "./logo.svg";
