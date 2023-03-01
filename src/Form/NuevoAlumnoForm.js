@@ -2,7 +2,7 @@ import "../App.css";
 import { useState } from "react";
 
 export default function NuevoAlumnoForm(props) {
-  const { alumnList, setAlumnList } = props;
+  const { counter, setCounter, setAlumnList } = props;
 
   const [alumn, setAlumn] = useState({
     id: 0,
@@ -12,11 +12,19 @@ export default function NuevoAlumnoForm(props) {
     semestre: 0,
   });
   function handleAlumn(e, key) {
-    setAlumn({...alumn, [key]: e.target.value})
+    setAlumn({ ...alumn, [key]: e.target.value });
   }
 
-  function addAlumn(){
+  function addAlumn() {
+    setCounter(counter + 1);
     setAlumnList((oldArray) => [...oldArray, alumn]);
+    setAlumn({
+      id: counter + 1,
+      nombre: "",
+      matricula: "",
+      promedio: 0,
+      semestre: 0
+    })
   }
 
   return (
@@ -27,7 +35,6 @@ export default function NuevoAlumnoForm(props) {
           type="number"
           placeholder="Id"
           value={alumn.id}
-          onChange={(e) => handleAlumn(e, 'id')}
           disabled
         />
       </td>
@@ -37,7 +44,7 @@ export default function NuevoAlumnoForm(props) {
           type="text"
           placeholder="Nombre"
           value={alumn.nombre}
-          onChange={(e) => handleAlumn(e, 'nombre')}
+          onChange={(e) => handleAlumn(e, "nombre")}
         />
       </td>
       <td>
@@ -46,7 +53,7 @@ export default function NuevoAlumnoForm(props) {
           type="text"
           placeholder="Matrícula"
           value={alumn.matricula}
-          onChange={(e) => handleAlumn(e, 'matricula')}
+          onChange={(e) => handleAlumn(e, "matricula")}
         />
       </td>
       <td>
@@ -55,7 +62,7 @@ export default function NuevoAlumnoForm(props) {
           type="number"
           placeholder="Promedio"
           value={alumn.promedio}
-          onChange={(e) => handleAlumn(e, 'promedio')}
+          onChange={(e) => handleAlumn(e, "promedio")}
         />
       </td>
       <td>
@@ -64,11 +71,11 @@ export default function NuevoAlumnoForm(props) {
           type="number"
           placeholder="Semestre"
           value={alumn.semestre}
-          onChange={(e) => handleAlumn(e, 'semestre')}
+          onChange={(e) => handleAlumn(e, "semestre")}
         />
       </td>
       <td>
-        <button className="btn btn-info" onClick={() => addAlumn()}>
+        <button className="btn btn-info" onClick={addAlumn}>
           Añadir
         </button>
       </td>

@@ -2,7 +2,7 @@ import Alumn from "./Object_class3/Alumn";
 import "./App.css";
 import "./Form/NuevoAlumnoForm";
 import NuevoAlumnoForm from "./Form/NuevoAlumnoForm";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function App() {
   /*Objeto estatico
@@ -15,6 +15,7 @@ export default function App() {
   */
 
   const [alumnList, setAlumnList] = useState([]);
+  const [counter, setCounter] = useState(0);
   
   // class alumnCreator {
   //   constructor(nombre, matricula, promedio, semestre) {
@@ -36,7 +37,7 @@ export default function App() {
   //   ...alumnos1,
   //   new alumnCreator("Oliver Ortega", "A00232304", 100, 3),
   // ];
-
+  
   return (
     <div className="App container-fluid">
       <div className="table-responsive">
@@ -52,7 +53,7 @@ export default function App() {
           {alumnList.map((element, index) => {
             return <Alumn alumn={element} key={index} />;
           })}
-          <NuevoAlumnoForm alumnList={alumnList} setAlumnList={setAlumnList}/>
+          <NuevoAlumnoForm counter={counter} setCounter={setCounter} setAlumnList={setAlumnList}/>
         </table>
       </div>
     </div>

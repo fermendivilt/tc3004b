@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 export default function Alumn(props) {
-  const { alumn, key} = props;
+  const { alumn } = props;
   const [getSemestre, setSemestre] = useState(alumn.semestre);
   const [getPromedio, setPromedio] = useState(alumn.promedio);
 
   const calcularSemestre = () => {
     if (getPromedio >= 70) {
-      setSemestre(getSemestre + 1);
+      setSemestre(Number(getSemestre) + 1);
       setPromedio(0);
     } else {
-      setPromedio(getPromedio + 10);
+      setPromedio(Number(getPromedio) + 10);
     }
   };
 
