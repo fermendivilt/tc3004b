@@ -5,5 +5,5 @@ test('Suma de dos números', () => {
 });
 
 test('Suma fallida de dos números', () => {
-    expect(sum(2, 2)).not.toBe(3);
+    expect(sum(2, 2)).toBe(3);
 })
